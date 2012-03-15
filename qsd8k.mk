@@ -14,7 +14,7 @@
 
 # usb profiles
 PRODUCT_COPY_FILES += \
-    device/htc/msm8660-common/prebuilt/init.msm8660.usb.rc:root/init.msm8660.usb.rc
+    device/htc/qsd8k-common/prebuilt/init.qsd8k.usb.rc:root/init.qsd8k.usb.rc
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -33,41 +33,35 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml
 
-# bootanimation
-PRODUCT_COPY_FILES += \
-    device/htc/msm8660-common/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip
+DEVICE_PACKAGE_OVERLAYS += device/htc/qsd8k-common/overlay
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/msm8660-common/overlay
-
-# QCOM Display
+# GPU
 PRODUCT_PACKAGES += \
-    copybit.msm8660 \
-    gralloc.msm8660 \
-    hwcomposer.msm8660 \
+    copybit.qsd8k \
+    gralloc.qsd8k \
+    hwcomposer.default \
+    hwcomposer.qsd8k \
     libgenlock \
     libmemalloc \
-    liboverlay \
-    libQcomUI \
-    libtilerenderer
+    libtilerenderer \
+    libQcomUI
 
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
-    audio_policy.msm8660 \
-    audio.primary.msm8660 \
-    libaudioutils
+    audio.primary.qsd8k \
+    audio_policy.qsd8k
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8660
+    camera.qsd8k \
+    Camera
 
 # Omx
 PRODUCT_PACKAGES += \
-    libdivxdrmdecrypt \
-    libmm-omxcore \
     libOmxCore \
+    libOmxVidEnc \
     libOmxVdec \
-    libOmxVenc \
     libstagefrighthw
 
 # Misc
@@ -76,32 +70,19 @@ PRODUCT_PACKAGES += \
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
+    Basic \
+    HoloSpiralWallpaper \
+    MagicSmokeWallpapers \
+    NoiseField \
+    Galaxy4 \
+    PhaseBeam \
     LiveWallpapers \
-    LiveWallpapersPicker \
-    VisualizationWallpapers \
-    librs_jni
+    VisualizationWallpapers
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
-
-# 8660 Common Firmware
-PRODUCT_COPY_FILES += \
-    device/htc/msm8660-common/prebuilt/etc/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
-    device/htc/msm8660-common/prebuilt/etc/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin \
-    device/htc/msm8660-common/prebuilt/etc/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
-    device/htc/msm8660-common/prebuilt/etc/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw \
-    device/htc/msm8660-common/prebuilt/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
-    device/htc/msm8660-common/prebuilt/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw
-
-# egl config file
-PRODUCT_COPY_FILES += \
-    device/htc/msm8660-common/prebuilt/lib/egl/egl.cfg:system/lib/egl/egl.cfg
-
-# media config xml file
-PRODUCT_COPY_FILES += \
-    device/htc/msm8660-common/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -111,6 +92,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
-
-PRODUCT_COPY_FILES += \
-    device/htc/msm8660-common/prebuilt/etc/init.post_boot.sh:system/etc/init.post_boot.sh

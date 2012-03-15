@@ -16,6 +16,10 @@
 PRODUCT_COPY_FILES += \
     device/htc/qsd8k-common/prebuilt/init.qsd8k.usb.rc:root/init.qsd8k.usb.rc
 
+# Firmware
+PRODUCT_COPY_FILES += \
+    device/htc/qsd8k-common/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \

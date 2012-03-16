@@ -271,17 +271,10 @@ camera_memory_t * CameraHAL_GenClientData(const sp<IMemory> &dataPtr,
 
 void CameraHAL_FixupParams(CameraParameters &settings)
 {
-   const char *preview_sizes =
-      "1280x720,800x480,768x432,720x480,640x480,576x432,480x320,384x288,352x288,320x240,240x160,176x144";
-   const char *video_sizes =
-      "1280x720,800x480,720x480,640x480,352x288,320x240,176x144";
-   const char *preferred_size       = "640x480";
-   const char *preview_frame_rates  = "30,27,24,15";
-   const char *preferred_frame_rate = "15";
-
-   settings.set(CameraParameters::KEY_VIDEO_FRAME_FORMAT,
-                CameraParameters::PIXEL_FORMAT_YUV420SP);
-
+    if (!settings.get(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO)) {
+        settings.set(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, "640x480");
+    }
+#ifdef CAF_PARAMS
     if (!settings.get(CameraParameters::KEY_MAX_SHARPNESS)) {
         settings.set(CameraParameters::KEY_MAX_SHARPNESS, "30");
     }
@@ -291,34 +284,7 @@ void CameraHAL_FixupParams(CameraParameters &settings)
     if (!settings.get(CameraParameters::KEY_MAX_SATURATION)) {
         settings.set(CameraParameters::KEY_MAX_SATURATION, "10");
     }
-   if (!settings.get(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES)) {
-      settings.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
-                   preview_sizes);
-   }
-
-   if (!settings.get(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES)) {
-      settings.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
-                   video_sizes);
-   }
-
-   if (!settings.get(CameraParameters::KEY_VIDEO_SIZE)) {
-      settings.set(CameraParameters::KEY_VIDEO_SIZE, preferred_size);
-   }
-
-   if (!settings.get(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO)) {
-      settings.set(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO,
-                   preferred_size);
-   }
-
-   if (!settings.get(CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES)) {
-      settings.set(CameraParameters::KEY_SUPPORTED_PREVIEW_FRAME_RATES,
-                   preview_frame_rates);
-   }
-
-   if (!settings.get(CameraParameters::KEY_PREVIEW_FRAME_RATE)) {
-      settings.set(CameraParameters::KEY_PREVIEW_FRAME_RATE,
-                   preferred_frame_rate);
-   }
+#endif
 }
 
 static void camera_release_memory(struct camera_memory *mem) { }

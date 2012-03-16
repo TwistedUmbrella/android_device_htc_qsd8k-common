@@ -20,6 +20,10 @@ LOCAL_C_INCLUDES       := frameworks/base/services \
 
 LOCAL_PRELINK_MODULE   := false
 
+ifeq ($(TARGET_USE_CAF_PARAMS), true)
+    LOCAL_CFLAGS += -DCAF_PARAMS
+endif
+
 include $(BUILD_SHARED_LIBRARY)
 
 endif

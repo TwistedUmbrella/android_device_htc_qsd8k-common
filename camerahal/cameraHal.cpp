@@ -2,7 +2,7 @@
  * Copyright (C) 2012, Raviprasad V Mummidi.
  *
  * Modified by Andrew Sutherland <dr3wsuth3rland@gmail.com>
- *              for The Evervolv Project's qsd8k lineup
+ * Copyright (C) 2012 Twisted Playground
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -282,6 +282,15 @@ void CameraHAL_FixupParams(CameraParameters &settings)
    settings.set(CameraParameters::KEY_VIDEO_FRAME_FORMAT,
                 CameraParameters::PIXEL_FORMAT_YUV420SP);
 
+    if (!settings.get(CameraParameters::KEY_MAX_SHARPNESS)) {
+        settings.set(CameraParameters::KEY_MAX_SHARPNESS, "30");
+    }
+    if (!settings.get(CameraParameters::KEY_MAX_CONTRAST)) {
+        settings.set(CameraParameters::KEY_MAX_CONTRAST, "10");
+    }
+    if (!settings.get(CameraParameters::KEY_MAX_SATURATION)) {
+        settings.set(CameraParameters::KEY_MAX_SATURATION, "10");
+    }
    if (!settings.get(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES)) {
       settings.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
                    preview_sizes);

@@ -18,7 +18,7 @@ PRODUCT_COPY_FILES += \
 
 # Firmware
 PRODUCT_COPY_FILES += \
-    device/htc/qsd8k-common/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd
+    device/htc/qsd8k-common/prebuilt/etc/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -37,7 +37,22 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/qsd8k-common/overlay
+#qsd8k common adreno libs
+PRODUCT_COPY_FILES += \
+    device/htc/qsd8k-common/prebuilt/etc/firmware/leia_pfp_470.fw:/system/etc/firmware/leia_pfp_470.fw \
+    device/htc/qsd8k-common/prebuilt/etc/firmware/leia_pm4_470.fw:/system/etc/firmware/leia_pm4_470.fw \
+    device/htc/qsd8k-common/prebuilt/etc/firmware/yamato_pfp.fw:/system/etc/firmware/yamato_pfp.fw \
+    device/htc/qsd8k-common/prebuilt/etc/firmware/yamato_pm4.fw:/system/etc/firmware/yamato_pm4.fw \
+    device/htc/qsd8k-common/prebuilt/lib/egl/egl.cfg:/system/lib/egl/egl.cfg \
+    device/htc/qsd8k-common/prebuilt/lib/egl/eglsubAndroid.so:/system/lib/egl/eglsubAndroid.so \
+    device/htc/qsd8k-common/prebuilt/lib/egl/libEGL_adreno200.so:/system/lib/egl/libEGL_adreno200.so \
+    device/htc/qsd8k-common/prebuilt/lib/egl/libGLESv1_CM_adreno200.so:/system/lib/egl/libGLESv1_CM_adreno200.so \
+    device/htc/qsd8k-common/prebuilt/lib/egl/libGLESv2_adreno200.so:/system/lib/egl/libGLESv2_adreno200.so \
+    device/htc/qsd8k-common/prebuilt/lib/egl/libq3dtools_adreno200.so:/system/lib/egl/libq3dtools_adreno200.so \
+    device/htc/qsd8k-common/prebuilt/lib/libgsl.so:/system/lib/libgsl.so \
+    device/htc/qsd8k-common/prebuilt/lib/libsc-a2xx.so:/system/lib/libsc-a2xx.so
+
+DEVICE_PACKAGE_OVERLAYS += device/htc/qsd8k-common/prebuilt/overlay
 
 # GPU
 PRODUCT_PACKAGES += \

@@ -12,14 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-# Inherit Vendor Files
-$(call inherit-product-if-exists, vendor/twisted/twisted-vendor.mk)
-$(call inherit-product-if-exists, vendor/twisted/google-vendor.mk)
-
-# Inherit Language Files
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
 # usb profiles
 PRODUCT_COPY_FILES += \
     device/htc/qsd8k-common/prebuilt/init.qsd8k.usb.rc:root/init.qsd8k.usb.rc

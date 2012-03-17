@@ -62,8 +62,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/qsd8k-common/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/qsd8k-common/prebuilt/overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
+PRODUCT_PACKAGE_OVERLAYS += device/htc/qsd8k-common/overlay
 
 # GPU
 PRODUCT_PACKAGES += \

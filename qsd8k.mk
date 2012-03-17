@@ -13,7 +13,7 @@
 # limitations under the License.
 
 
-# Inherit msm7x30 Vendor Files
+# Inherit Vendor Files
 $(call inherit-product-if-exists, vendor/twisted/twisted-vendor.mk)
 $(call inherit-product-if-exists, vendor/twisted/google-vendor.mk)
 

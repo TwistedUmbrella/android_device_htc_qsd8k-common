@@ -271,19 +271,11 @@ camera_memory_t * CameraHAL_GenClientData(const sp<IMemory> &dataPtr,
 
 void CameraHAL_FixupParams(CameraParameters &settings)
 {
-    if (!settings.get(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO)) {
-        settings.set(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, "640x480");
-    }
+    settings.set(CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, "640x480");
 #ifdef CAF_PARAMS
-    if (!settings.get(CameraParameters::KEY_MAX_SHARPNESS)) {
-        settings.set(CameraParameters::KEY_MAX_SHARPNESS, "30");
-    }
-    if (!settings.get(CameraParameters::KEY_MAX_CONTRAST)) {
-        settings.set(CameraParameters::KEY_MAX_CONTRAST, "10");
-    }
-    if (!settings.get(CameraParameters::KEY_MAX_SATURATION)) {
-        settings.set(CameraParameters::KEY_MAX_SATURATION, "10");
-    }
+    settings.set(CameraParameters::KEY_MAX_SHARPNESS, "30");
+    settings.set(CameraParameters::KEY_MAX_CONTRAST, "10");
+    settings.set(CameraParameters::KEY_MAX_SATURATION, "10");
 #endif
 }
 

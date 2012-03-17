@@ -12,6 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+# Inherit msm7x30 Vendor Files
+$(call inherit-product-if-exists, vendor/twisted/twisted-vendor.mk)
+$(call inherit-product-if-exists, vendor/twisted/google-vendor.mk)
+
+# Inherit Language Files
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
 # usb profiles
 PRODUCT_COPY_FILES += \
     device/htc/qsd8k-common/prebuilt/init.qsd8k.usb.rc:root/init.qsd8k.usb.rc
@@ -52,7 +60,12 @@ PRODUCT_COPY_FILES += \
     device/htc/qsd8k-common/prebuilt/lib/libgsl.so:/system/lib/libgsl.so \
     device/htc/qsd8k-common/prebuilt/lib/libsc-a2xx.so:/system/lib/libsc-a2xx.so
 
+# media config xml file
+PRODUCT_COPY_FILES += \
+    device/htc/qsd8k-common/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
+
 DEVICE_PACKAGE_OVERLAYS += device/htc/qsd8k-common/prebuilt/overlay
+PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
 
 # GPU
 PRODUCT_PACKAGES += \

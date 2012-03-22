@@ -31,8 +31,8 @@
          config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
     <bool name="config_automatic_brightness_available">true</bool>
 
-    <!-- disable menu hard key on Passion in non-pattern lockscreen -->
-    <bool name="config_disableMenuKeyInLockScreen">true</bool>
+    <!-- Our amoled doesn't animate well but enable anyway. -->
+    <bool name="config_animateScreenLights">true</bool>
 
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 zones as follows:
@@ -177,21 +177,10 @@
         <item>4</item>
     </integer-array>
 
-    <!-- If true, the screen can be rotated via the accelerometer in all 4
-    rotations as the default behavior. -->
-    <bool name="config_allowAllRotations">true</bool>
-
     <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
     <integer-array name="config_keyboardTapVibePattern">
         <item>30</item>
     </integer-array>
-
-    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
-         specified -->
-    <string name="default_wallpaper_component">@null</string>
-
-    <!-- Enable use of power animations -->
-    <bool name="config_animateScreenLights">false</bool>
 
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
@@ -205,18 +194,8 @@
     <!-- Boolean indicating whether the wifi chipset has background scan support -->
     <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
 
-    <bool name="config_ui_enableFadingMarquee">false</bool>
-    
-    <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveNotificationLed">true</bool>
-
-    <!-- Boolean indicating if restoring network selection should be skipped -->
-    <!-- The restoring is handled by modem if it is true -->
-    <bool translatable="false" name="skip_restoring_network_selection">true</bool>
-
-
-    <!-- If this value is true, The mms content-disposition field is supported correctly.
-    If false, Content-disposition fragments are ignored -->
-    <bool name="config_mms_content_disposition_support">false</bool>
+    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
+     specified -->
+    <string name="default_wallpaper_component">com.android.wallpaper/.nexus.NexusWallpaper</string>
 
 </resources>

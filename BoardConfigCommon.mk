@@ -57,21 +57,6 @@ TARGET_HAVE_BYPASS      := false
 # qsd dont support c2d
 TARGET_USES_C2D_COMPOSITION := false
 
-# Try to use ASHMEM if possible (when non-MDP composition is used)
-# if enabled, set debug.sf.hw=1 in system.prop
-# This is still confusing to me disabling for now since pmem and mdp seems to work fine
-#TARGET_GRALLOC_USES_ASHMEM := true
-
-# Find out what these do..if anything
-# used in cafs tree nothing actually present is ours (yet)
-#HAVE_ADRENO200_SOURCE := true
-#HAVE_ADRENO200_SC_SOURCE := true
-#HAVE_ADRENO200_FIRMWARE := true
-#BOARD_USES_QCNE := true
-# I dont think these do anything but everyone else is using them
-#BOARD_USE_QCOM_PMEM := true
-#BOARD_USES_ADRENO_200 := true
-#TARGET_HARDWARE_3D := false
 # Debuging egl
 COMMON_GLOBAL_CFLAGS += -DEGL_TRACE #-DDEBUG_CALC_FPS
 
@@ -93,9 +78,6 @@ BOARD_USES_QCOM_LEGACY := true
 BOARD_VENDOR_USE_AKMD := akm8973
 
 BOARD_USE_OPENSSL_ENGINE := true
-
-# Legacy touchscreen support
-# BOARD_USE_LEGACY_TOUCHSCREEN := true
 
 BOARD_HAVE_FM_RADIO := true
 BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO

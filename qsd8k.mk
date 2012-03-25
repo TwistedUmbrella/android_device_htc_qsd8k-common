@@ -18,9 +18,9 @@ PRODUCT_COPY_FILES += \
 
 # Firmware
 PRODUCT_COPY_FILES += \
-    device/htc/qsd8k-common/prebuilt/etc/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
-    device/htc/qsd8k-common/prebuilt/etc/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
-    device/htc/qsd8k-common/prebuilt/etc/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
+    device/htc/qsd8k-common/prebuilt/etc/firmware/bcm4329.hcd:system/vendor/firmware/bcm4329.hcd
+
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcm4329/firmware/Android.mk)
 
 # Permissions
 PRODUCT_COPY_FILES += \
